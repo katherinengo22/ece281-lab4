@@ -84,7 +84,7 @@ architecture top_basys3_arch of top_basys3 is
 begin
 	-- PORT MAPS ----------------------------------------
     clk_div : clock_divider
-        generic map(k_DIV => 50000000)
+        generic map(k_DIV => 25000000)
         port map (
             i_clk => clk,
             i_reset => w_clk_reset,
@@ -92,7 +92,7 @@ begin
         );
         
     tdm_clk_div : clock_divider
-        generic map(k_DIV => 100000)
+        generic map(k_DIV => 10000)
         port map (
             i_clk => clk,
             i_reset => w_clk_reset,
@@ -120,7 +120,7 @@ begin
     tdm_inst : TDM4
         port map (
             i_clk => tdm_clk,
-            i_reset => btnU,
+            i_reset => w_clk_reset,
             i_D3 => "1111",
             i_D2 => elevator2,
             i_D1 => "1111",
